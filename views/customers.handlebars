@@ -1,0 +1,16 @@
+
+<h1>Lista de clientes cadastrados</h1>
+
+{{#each data}}
+
+<div class="card-people">
+    <h1>nome:  {{this.nome}}</h1>
+    <p>IMC: {{this.imc}}</p>
+    <p>Peso: {{this.peso}}</p>
+    <p>Altura: {{this.altura}}</p>
+    <p>Idade: {{this.idade}}</p>
+    <p>Incluido: {{this.dataInclusao}}</p>
+
+</div>
+
+{{/each}}

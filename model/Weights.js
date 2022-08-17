@@ -5,7 +5,8 @@ const mongoose = require('mongoose')
     altura: Number,
     idade: Number,
     genero: String,
-    dataInclusão: Date
+    dataInclusao: Date,
+    IMC: Number
 })
 
 
