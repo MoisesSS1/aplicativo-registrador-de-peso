@@ -1,9 +1,10 @@
 <h1>Criar novo usuário</h1>
 
-<form action="customers/create" method="POST">
-<input type="text" name="nome" id="nome" placeholder="Nome">
-<input type="number" name="altura" id="altura" placeholder="Altura">
-<input type="number" name="idade" id="idade" placeholder="Digite a idade">
+<form action="/customers/create" method="POST">
+<input type="text" name="nome" id="nome" placeholder="Nome" required>
+<input type="number" name="altura" id="altura" placeholder="Altura (cm)" required>
+<input type="number" name="idade" id="idade" placeholder="Digite a idade" required>
+<input type="number" name="peso" id="peso" placeholder="Digite seu peso (Kg)" required>
 
 <p>Digite seu gênero</p>
 <input type="radio" name="genero" value="masculino" checked="true">
@@ -13,8 +14,6 @@
 <label for="feminino">Feminino</label>
 
 <input type="date" name="dataInclusao">
-
-<input type="number" name="imc" >
 
 <input type="submit" value="Cadastrar dados">
 

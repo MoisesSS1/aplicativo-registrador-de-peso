@@ -22,14 +22,50 @@ app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 
-app.get('/',(req,res)=>{
-    res.render('home')
-})
 
 //Criar rota get/post para cadastro de dados
 
 app.get('/customers/create', (req,res)=>{
     res.render('createUser')
+})
+
+app.post('/customers/create', async (req,res)=>{
+    
+    const nome = req.body.nome
+    const altura = req.body.altura
+    const peso = req.body.peso
+    const idade = req.body.idade 
+    const genero = req.body.genero 
+    let dataInclusao = req.body.dataInclusao 
+    const imc = (peso / ((altura * altura)/10000)).toFixed(2)
+
+    let date = new Date()
+
+    if(dataInclusao==""){
+        dataInclusao = date
+    }
+
+    const data = {
+        nome:nome,
+        altura:altura,
+        peso:peso,
+        idade:idade,
+        genero:genero,
+        dataInclusao:dataInclusao,
+        imc:imc
+    }
+
+    try{
+        
+    console.log(data)
+    await Weights.create(data)
+    res.redirect('/')
+
+
+    }catch(error){
+        res.status(500).console.log(error)
+    }
+
 })
 
 
@@ -52,6 +88,9 @@ app.get('/customers', async (req,res)=>{
 //Criar rota post para salvar dados
 
 
+app.get('/',(req,res)=>{
+    res.render('home')
+})
 
 mongoose.connect(url, ()=>{
     console.log('servidor conectado')
