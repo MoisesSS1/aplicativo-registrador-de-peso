@@ -24,7 +24,6 @@ app.set('views', './views');
 
 
 //Criar rota get/post para cadastro de dados
-
 app.get('/customers/create', (req,res)=>{
     res.render('createUser')
 })
@@ -73,13 +72,17 @@ app.post('/customers/create', async (req,res)=>{
 //criar rota get para exibir dados
 app.get('/customers', async (req,res)=>{
 
-    const data = await Weights.find({})
-
+    const data = await Weights.find().lean()
     res.render('customers', {data})
-
 })
 
-//criar get para editar dados
+
+//criar get para editar dados individuais
+app.get('/costumers/edit/:id',(req,res)=>{
+
+    res.render('edit')
+
+})
 
 
 //criar rota post para exluir dados
