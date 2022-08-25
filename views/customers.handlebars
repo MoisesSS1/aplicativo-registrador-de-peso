@@ -1,16 +1,22 @@
+<header id="customers-header">
 
-<h1>Lista de clientes cadastrados</h1>
+    <h1>Clientes cadastrados</h1>
+
+</header>
+
+<main id="customers-main">
 
 {{#each data}}
-
-<div class="card-people">
-    <h1>Nome:  {{this.nome}}</h1>
+    <div class="card-people">
+    <h1> {{this.nome}}</h1>
     <p>IMC: {{this.imc}}</p>
     <p>Peso: {{this.peso}}</p>
     <p>Altura: {{this.altura}}</p>
     <p>Idade: {{this.idade}}</p>
-    <p>Incluido: {{this.dataInclusao}}</p>
+
+    <button id="btn-card-people"> <a href="">Editar dados</a></button>
 
 </div>
-
 {{/each}}
+
+</main>

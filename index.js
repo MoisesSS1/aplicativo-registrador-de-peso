@@ -78,9 +78,9 @@ app.get('/customers', async (req,res)=>{
 
 
 //criar get para editar dados individuais
-app.get('/costumers/edit/:id',(req,res)=>{
+app.get('/costumer/edit/:id',(req,res)=>{
 
-    res.render('edit')
+    res.render('customerEdit')
 
 })
 
