@@ -96,8 +96,9 @@ app.post('/customer/edit/:id', async (req,res)=>{
     let idade = req.body.idade
     let genero = req.body.genero
 
-    const imc = await (peso / ((altura * altura)/10000)).toFixed(2)
-
+    try{
+        const imc = await (peso / ((altura * altura)/10000)).toFixed(2)
+        
     const obj = {
         _id:_id,
         nome:nome,
@@ -110,16 +111,36 @@ app.post('/customer/edit/:id', async (req,res)=>{
 
     let updateCustomer = await Weights.findOneAndUpdate({_id:_id}, obj)
 
-    res.redirect('/customers')    
+    res.redirect('/customers')  
+
+    }catch(error){
+        console.log(error)
+    }
+
+    
+  
 })
 
 
 //criar rota post para exluir dados
 
-app.post('/cutomer/remove/:id',(req,res)=>{
-    let _id = req.params.id
 
-    res.redirect('home')
+app.post('/customer/delete/:id', async (req,res)=>{
+
+    const _id = req.params.id   
+
+    try{
+        await Weights.deleteOne({_id:_id})
+
+        res.redirect('/customers')
+
+    } catch(error){
+        console.log(error)
+
+    }
+
+
+
 })
 
 
