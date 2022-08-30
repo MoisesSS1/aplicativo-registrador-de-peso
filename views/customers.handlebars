@@ -14,7 +14,8 @@
     <p>Altura: {{this.altura}}</p>
     <p>Idade: {{this.idade}}</p>
 
-    <button id="btn-card-people"> <a href="">Editar dados</a></button>
+    <button id="btn-card-people"> <a href="/customer/edit/{{this._id}}">Editar dados</a></button>
+    <button id="btn-card-people"> <a href="/customer/remove/{{this._id}}">Exluir cliente</a></button>
 
 </div>
 {{/each}}

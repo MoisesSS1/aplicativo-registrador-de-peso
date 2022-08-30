@@ -67,8 +67,6 @@ app.post('/customers/create', async (req,res)=>{
 
 })
 
-
-
 //criar rota get para exibir dados
 app.get('/customers', async (req,res)=>{
 
@@ -77,18 +75,54 @@ app.get('/customers', async (req,res)=>{
 })
 
 
-//criar get para editar dados individuais
-app.get('/costumer/edit/:id',(req,res)=>{
+//editar dados individuais
+app.get('/customer/edit/:id', async (req,res)=>{
 
-    res.render('customerEdit')
+    const _id = req.params.id
+    
+    const data = await Weights.find({_id:_id}).lean()
+    const customer = data[0] //vem como array
 
+    res.render('customerEdit',  customer )
+
+})
+
+app.post('/customer/edit/:id', async (req,res)=>{
+
+    let _id = req.params.id
+    let nome = req.body.nome
+    let altura = req.body.altura
+    let peso = req.body.peso
+    let idade = req.body.idade
+    let genero = req.body.genero
+
+    const imc = await (peso / ((altura * altura)/10000)).toFixed(2)
+
+    const obj = {
+        _id:_id,
+        nome:nome,
+        altura:altura,
+        peso:peso,
+        idade:idade,
+        genero:genero,
+        imc:imc
+    }
+
+    let updateCustomer = await Weights.findOneAndUpdate({_id:_id}, obj)
+
+    res.redirect('/customers')    
 })
 
 
 //criar rota post para exluir dados
 
+app.post('/cutomer/remove/:id',(req,res)=>{
+    let _id = req.params.id
 
-//Criar rota post para salvar dados
+    res.redirect('home')
+})
+
+
 
 
 app.get('/',(req,res)=>{
