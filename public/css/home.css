@@ -17,7 +17,7 @@
     border-radius: 15px;
     border-style: none;
     font-size: 16px;
-    transition: 5s;
+    transition: 1s;
 }
 
 .btn a{
@@ -25,5 +25,8 @@
 }
 
 .btn:hover{
-    background-color: rgb(140, 177, 140);
+    background-color: rgb(68, 164, 152);
+   
+    height: 60px;
 }
+

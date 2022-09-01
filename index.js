@@ -25,7 +25,7 @@ app.set('views', './views');
 
 //Criar rota get/post para cadastro de dados
 app.get('/customers/create', (req,res)=>{
-    res.render('createUser')
+    res.render('customerCreate')
 })
 
 app.post('/customers/create', async (req,res)=>{
@@ -56,10 +56,8 @@ app.post('/customers/create', async (req,res)=>{
 
     try{
         
-    console.log(data)
     await Weights.create(data)
     res.redirect('/')
-
 
     }catch(error){
         res.status(500).console.log(error)
@@ -79,12 +77,10 @@ app.get('/customers', async (req,res)=>{
 app.get('/customer/edit/:id', async (req,res)=>{
 
     const _id = req.params.id
-    
     const data = await Weights.find({_id:_id}).lean()
     const customer = data[0] //vem como array
 
     res.render('customerEdit',  customer )
-
 })
 
 app.post('/customer/edit/:id', async (req,res)=>{
@@ -98,7 +94,6 @@ app.post('/customer/edit/:id', async (req,res)=>{
 
     try{
         const imc = await (peso / ((altura * altura)/10000)).toFixed(2)
-        
     const obj = {
         _id:_id,
         nome:nome,
@@ -110,41 +105,25 @@ app.post('/customer/edit/:id', async (req,res)=>{
     }
 
     let updateCustomer = await Weights.findOneAndUpdate({_id:_id}, obj)
-
     res.redirect('/customers')  
 
     }catch(error){
         console.log(error)
     }
-
-    
-  
 })
 
-
 //criar rota post para exluir dados
-
-
 app.post('/customer/delete/:id', async (req,res)=>{
 
     const _id = req.params.id   
 
     try{
         await Weights.deleteOne({_id:_id})
-
         res.redirect('/customers')
-
     } catch(error){
         console.log(error)
-
     }
-
-
-
 })
-
-
-
 
 app.get('/',(req,res)=>{
     res.render('home')
