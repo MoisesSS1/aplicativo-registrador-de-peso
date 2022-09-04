@@ -57,7 +57,7 @@ app.post('/create', async (req,res)=>{
     try{
         
     await Weights.create(data)
-    res.redirect('/')
+    res.redirect('/customers')
 
     }catch(error){
         res.status(500).console.log(error)
