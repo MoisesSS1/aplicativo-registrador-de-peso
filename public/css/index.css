@@ -5,3 +5,159 @@
     color: black;
     font-family: 'Times New Roman', Times, serif;
 }
+
+/* navegação */
+nav{
+    width: 100%;
+    background-color: rgb(165, 217, 217);
+    height: 40px;
+    text-align: center;
+    padding-top: 8px;
+}
+nav a{
+    padding-left: 30px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* home */
+#home-header{
+    margin-top: 100px;
+    text-align: center;
+}
+#home-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:100px ;
+}
+.btn{
+    margin: 20px;
+    width: 180px;
+    height: 50px;
+    border-radius: 15px;
+    border-style: none;
+    font-size: 16px;
+    transition: 1s;
+}
+.btn a{
+    text-decoration: none
+}
+.btn:hover{
+    background-color: rgb(68, 164, 152);
+   
+    height: 60px;
+}
+
+
+
+/* exibicao de todos os usuarios */
+#customers-header{
+    margin-top: 30px;
+    text-align: center;
+
+}
+#customers-header h1{
+    color: rgb(66, 66, 66);
+
+}
+#customers-main{
+    margin-top: 30px ;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.card-people{
+    box-shadow: 1px 1px 10px black;
+    border-radius: 30px;
+    text-align: center;
+    width: 250px;
+    margin-top: 30px;
+    background-color: whitesmoke;
+    min-height: 200px;
+}
+.card-people h1{
+    margin: 10px;
+}
+#btn-card-people{
+    border-style: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    margin-top: 20px;
+}
+#btn-card-people a{
+    text-decoration: none;
+}
+
+/* formularios */
+
+h1{
+    color: rgb(55, 69, 65);
+    text-align: center;
+}
+
+#container-form{
+    color: rgb(55, 69, 65);
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 350px;
+    text-align: left;
+}
+
+form p {
+    width: 300px;
+}
+
+form input{
+    text-decoration: none;
+    padding: 10px;
+    margin:15px 0px;
+}
+
+input[type=submit]{
+    border-style: none;
+    border-radius: 15px;
+    height: 50px;
+    width: 50%;
+    margin: 10px auto; 
+    transition: .5s;
+}
+
+input[type=submit]:hover{
+    background-color: rgb(12, 14, 12);
+    color: white;
+}
+
+input:hover{
+    cursor: pointer;
+}
+
+#radio{
+    display: inline;
+    text-align: center;
+}
+
+input[type=radio]{
+    margin-left: 20px;
+}
+
+#delete:hover{
+    background-color: rgb(185, 64, 64);
+
+}
+
+#update:hover{
+    background-color: rgb(55, 55, 131);
+}

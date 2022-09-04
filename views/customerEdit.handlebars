@@ -1,25 +1,41 @@
-<h1 id="h1" class="h1">Editar dados</h1>
+<div id="container-form">
+<h1>Editar dados</h1>
 
 <form action="/customer/edit/{{_id}}" method="POST">
 <input type="text" value={{_id}} disabled hidden>
-<input type="text" value="{{nome}}" name="nome" id="nome" placeholder="Nome" >
-<input type="number" value="{{altura}}" name="altura" id="altura" placeholder="Altura (cm)" >
-<input type="number" value="{{idade}}" name="idade" id="idade" placeholder="Digite a idade" >
-<input type="number" value="{{peso}}" name="peso" id="peso" placeholder="Digite seu peso (Kg)" >
 
-<p>Digite seu gênero</p>
+<p>
+    Nome: <input type="text" value="{{nome}}" name="nome" id="nome" placeholder="Nome" >
+</p>
+
+<p>
+    Altura(cm): <input type="number" value="{{altura}}" name="altura" id="altura" placeholder="Altura (cm)" >
+</p>
+
+<p>
+    Idade: <input type="number" value="{{idade}}" name="idade" id="idade" placeholder="Digite a idade" >
+</p>
+
+<p>
+    Peso(Kg): <input type="number" value="{{peso}}" name="peso" id="peso" placeholder="Digite seu peso (Kg)" >
+</p>
+
+<div id="radio">
+    <p>Digite seu gênero</p>
 <input type="radio" name="genero" value="masculino" required>
 <label for="masculino">Masculino</label>
 
 <input type="radio" name="genero" value="feminino" required>
 <label for="feminino">Feminino</label>
 
-<br>
-<input type="submit" value="Atualizar">
+</div>
+
+<input id="update" type="submit" value="Atualizar">
 
 </form>
 
 <form action="/customer/delete/{{_id}}" method="POST">
-
-<input type="submit" value="Excluir">
+<input id="delete" type="submit" value="Excluir">
 </form>
+
+</div>

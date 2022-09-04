@@ -24,11 +24,11 @@ app.set('views', './views');
 
 
 //Criar rota get/post para cadastro de dados
-app.get('/customers/create', (req,res)=>{
+app.get('/create', (req,res)=>{
     res.render('customerCreate')
 })
 
-app.post('/customers/create', async (req,res)=>{
+app.post('/create', async (req,res)=>{
     
     const nome = req.body.nome
     const altura = req.body.altura
@@ -74,7 +74,7 @@ app.get('/customers', async (req,res)=>{
 
 
 //editar dados individuais
-app.get('/customer/edit/:id', async (req,res)=>{
+app.get('/:id', async (req,res)=>{
 
     const _id = req.params.id
     const data = await Weights.find({_id:_id}).lean()
@@ -83,7 +83,7 @@ app.get('/customer/edit/:id', async (req,res)=>{
     res.render('customerEdit',  customer )
 })
 
-app.post('/customer/edit/:id', async (req,res)=>{
+app.post('/:id', async (req,res)=>{
 
     let _id = req.params.id
     let nome = req.body.nome
